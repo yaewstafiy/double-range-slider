@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Range Slider</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="slider">
+      <div class="slider__box">
+        <div class="slider__box-input">
+          <input class="input-min" type="number" data-min="0" data-max="1000" value="100" step="10">
+          <span class="ruble-icon">₽</span>
+        </div>
+        <div class="slider__box-input">
+          <input class="input-max" type="number" data-min="0" data-max="1000" value="900" step="10">
+          <span class="ruble-icon">₽</span>
+        </div>
+      </div>
+      <div class="double-slider">
+        <div class="double-slider__progress"></div>
+      </div>
+      <div class="range-input">
+        <input class="range-min" type="range" data-min="0" data-max="1000" value="100" step="10">
+        <input class="range-max" type="range" data-min="0" data-max="1000" step="10">
+        <!-- Здесь должен быть явно установлен атрибут max, т.к. браузер при валидации страницы ставит атрибут value в значение, не превыщающее max, либо 100. Если max нет по умолчанию, value будет равно 100, из-за чего верстка поломается -->
+
+        <!-- Однако есть опция обойти это, убрав value из атрибутов и задав его после инициализации в JS файле. Алгоритм следующий:
+        1)  На .range-max устанавливаю атрибуты min и max, беря значения из data-min и data-max;
+        2) Устанавливаю value, равный 900.
+        После этого слайдер инициализируется корректно.-->
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
